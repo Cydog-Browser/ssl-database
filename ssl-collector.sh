@@ -56,7 +56,8 @@ if [[ $commit == true ]]
 then
   git config --global user.name 'Cydog'
   git config --global user.email 'cydog@cydogbrowser.com'
-  git add -A --force logs/
+  git add -A --force certs/
+  git add -A --force publickeys/
   git commit -am '[Automated] Updated Database'
   git push
 fi
