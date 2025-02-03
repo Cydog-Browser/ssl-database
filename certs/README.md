@@ -1,1 +1,1 @@
-Contains pems of all collected SSLs.
+Contains all collected SSLs.

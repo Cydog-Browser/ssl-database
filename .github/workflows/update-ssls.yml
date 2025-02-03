@@ -13,4 +13,4 @@ jobs:
       - uses: actions/checkout@v2
       - name: Update SSL Database
         id: shell_script_run
-        run: bash ./ssl-collector.sh 2>>./certs/logs/error.log
+        run: bash ./ssl-collector.sh
