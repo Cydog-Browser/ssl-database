@@ -1,0 +1,16 @@
+name: update-ssl-database
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  health_check_job:
+    runs-on: ubuntu-latest
+    name: run ssl-collector.sh
+    steps:
+      - uses: actions/checkout@v2
+      - name: Update SSL Database
+        id: shell_script_run
+        run: bash ./ssl-collector.sh 2>>./certs/logs/error.log
