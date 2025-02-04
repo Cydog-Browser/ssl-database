@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cydog Browser SSL Database</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' cydogbrowser.com;script-src-elem 'self';style-src 'self' cydogbrowser.com googleapis.com fonts.googleapis.com;img-src 'self' data: cydogbrowser.com;font-src 'self' fonts.gstatic.com;connect-src 'self' https:;">
+    <meta name="description" content="Cydog Browser is first security browser. Our goal is to secure your webspace.">
+    <meta name="keywords" content="browser, network, cybersecurity">
+    <meta name="copyright" content="Cydog Browser">
+    <meta name="robots" content="index,follow">
+    <meta http-equiv="expires" content="302400">
+    <!--<meta property="og:image" content="">-->
+    <meta id="theme-color" name="theme-color" content="#303030">
+    <link rel="stylesheet" nonce="" href="static/css/style.css" />
+    <link rel="stylesheet" href="static/css/fontawesome-free-6.7.2-web/css/all.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@200..800&family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=Nixie+One&display=swap" rel="stylesheet">
+    <!--<link rel="stylesheet" nonce="" href="static/css/fonts.css">-->
+    <!--<link rel="shortcut icon" type="image/jpg" href="">-->
+  </head>
+  <body>
+    <section class="nav">
+        <div>
+            <div class="logo-group">
+                <img src="static/images/logo.png">
+                <h3>Cydog Browser</h3>
+            </div>
+            <div>
+                <form id="searcher" action="?q=" method="post">
+                    <input id="query" class="search-bar" type="text" placeholder="Search..." required>
+                    <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <section class="main">
+        <div class="sub-main-left">
+            <div>
+                <h3>SSL Database</h3>
+                <p id="domain"></p>
+                <button id="readable"><i class="fa-brands fa-readme"></i> Readable</button>
+                <button id="certificate"><i class="fa-solid fa-certificate"></i> Certificate</button>
+                <button id="public-hash"><i class="fa-solid fa-hashtag"></i> Public Hash Key</button>
+                <a id="download">Download .crt <i class="fa-solid fa-download"></i></a>
+            </div>
+        </div>
+        <div class="sub-main-right">
+            <div class="top-bar">
+                <select name="theme-mode" id="theme-mode" class="theme-selection">
+                    <option value="dark-mode">Darker</option>
+                    <option value="light-mode">Lighter</option>
+                    <option value="cobalt-mode">Cobalt</option>
+                    <option value="turtler-mode">Turtler</option>
+                    <option value="stormer-mode">Stormer</option>
+                </select>
+            </div>
+            <div id="file-string"></div>
+        </div>
+    </section>
+    <section class="footer">
+        <footer>
+            <p>
+                <a href="https://cydogbrowser.com">Cydog Browser</a> SSL Database on <a href="https://github.com/Cydog-Browser/ssl-database"><i class="fa-brands fa-github"></i> GitHub</a>
+            </p>
+        </footer>
+    </section>
+    <script src="static/js/index.js"></script>
+  </body>
+</html>
