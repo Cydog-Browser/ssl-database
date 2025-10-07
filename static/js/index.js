@@ -1,4 +1,5 @@
 const fileString = document.getElementById("file-string");
+const topBar = document.getElementById('top-bar');
 const domain = document.getElementById("domain");
 const readable = document.getElementById("readable");
 const certificate = document.getElementById("certificate");
@@ -84,8 +85,56 @@ async function catchQuery(requestedDomain){
         fileString.innerText = `Looks like there was an issue with this query\n\n${error}`;
     }
     function showInfo(data) {
-        fileString.innerText = data;
+        fileString.innerHTML = splitReadableCertificate(data);
+        fileString.style.wordBreak = "break-word";
+        highlightDate();
     }
+}
+function splitReadableCertificate(text) {
+    //const sanitizedText = text.replaceAll(" ", "");
+    // Split the string while preserving delimiters
+    const parts = text.split(/(:)/g);
+            
+    // Process segments with conditions
+    const processed = [];
+    let currentSegment = '';
+    
+    for (let i = 0; i < parts.length; i++) {
+        if (parts[i] === ':') {
+            if (currentSegment.length >= 2 && !currentSegment.includes(':')) {
+                processed.push(`${currentSegment}`);
+                processed.push(':');
+                currentSegment = '';
+            } else {
+                currentSegment += ':';
+            }
+        } else {
+            currentSegment += parts[i];
+        }
+    }
+    
+    // Add remaining segment
+    if (currentSegment.length > 0) {
+        processed.push(currentSegment);
+    }
+    let newArray = processed.filter(element => element !== ":");
+    let newArray2 = newArray.filter(element => element.length > 4);
+    return `${newArray2.map(newArray2 => `&nbsp;${newArray2.trim()}`).join('')}&nbsp;`;
+}
+function highlightDate(){
+    const regex = /\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2}\s+\d{2}&nbsp;\d{2}\s+\d{4}\s+GMT\b/g;
+    var text = fileString.innerHTML;
+    const classNumber = Math.floor(Math.random() * (99999 - 10000 + 1)) + 10000;
+    text = text.replace(regex, `<mark class="time-${classNumber}">$&</mark>`);
+    const regex2 = /\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2}\s+\d{2}&nbsp;\d{2}\.\d{3}\s+\d{4}\s+GMT\b/gi;
+    text = text.replace(regex2, `<mark class="time-${classNumber}">$&</mark>`);
+    const classNumberElements = document.querySelectorAll(`.time-${classNumber}`);
+    classNumberElements.forEach(element => {
+        var elementText = element.innerHTML;
+        elementText = elementText.replace("&nbsp;", ":");
+        element.innerHTML = elementText;
+    });
+    fileString.innerHTML = text;
 }
 async function getCert(requestedDomain){
     try {
@@ -141,22 +190,27 @@ function setTheme(themeValue){
     if(themeValue.includes("dark-mode")){
         fileString.style.backgroundColor = "#090300";
         fileString.style.color = "#A5A2A2";
+        topBar.style.backgroundColor = "#090300";
         localStorage.setItem('theme', themeValue);
     } else if(themeValue.includes("light-mode")){
         fileString.style.backgroundColor = "#f7f7f7";
         fileString.style.color = "#101010";
+        topBar.style.backgroundColor = "#f7f7f7";
         localStorage.setItem('theme', themeValue);
     } else if(themeValue.includes("cobalt-mode")){
         fileString.style.backgroundColor = "#0d1926";
         fileString.style.color = "#0883FF";
+        topBar.style.backgroundColor = "#0d1926";
         localStorage.setItem('theme', themeValue);
     } else if(themeValue.includes("turtler-mode")){
         fileString.style.backgroundColor = "#18201e";
         fileString.style.color = "#3BE381";
+        topBar.style.backgroundColor = "#18201e";
         localStorage.setItem('theme', themeValue);
     } else if(themeValue.includes("stormer-mode")){
         fileString.style.backgroundColor = "#1d262f";
         fileString.style.color = "#6E9BCF";
+        topBar.style.backgroundColor = "#1d262f";
         localStorage.setItem('theme', themeValue);
     }
 }

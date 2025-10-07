@@ -14,31 +14,11 @@ body {
     flex-flow: column;
     margin: 0 auto;
     max-width: 1200px;
-    font-family: "Mona Sans", serif;
+    font-family: 'Segoe UI', system-ui, sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
     font-variation-settings: 100;
-}
-/* Fonts */
-.mona-sans-variable {
-    font-family: "Mona Sans", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-variation-settings: 100;
-}
-.nixie-one-regular {
-    font-family: "Nixie One", serif;
-    font-weight: 400;
-    font-style: normal;
-}  
-
-.changa-variable {
-    font-family: "Changa", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
 }
 /* Main */
 section {
@@ -75,7 +55,7 @@ section {
 }
 .nav div .logo-group h3 {
     color: #fff;
-    font-family: "Changa", serif;
+    font-family: 'Segoe UI', system-ui, sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
@@ -165,6 +145,7 @@ section {
     text-align: center;
     align-items: end;
     align-self: flex-end;
+    margin: 7.5px;
 }
 .theme-selection:hover{
     background-color: #303030;
@@ -190,7 +171,7 @@ section {
     text-decoration: none;
     cursor: pointer;
     text-align: start;
-    font-family: "Mona Sans", serif;
+    font-family: 'Segoe UI', system-ui, sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
@@ -260,7 +241,8 @@ section {
     padding: 10px;
     word-break: break-all;
     white-space: pre-wrap;
-    font-family: "Mona Sans", serif;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-family: "Consolas", monospace;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
@@ -282,11 +264,13 @@ footer p {
     color: #fff;
     text-decoration: none;
     outline: none;
+    padding: 0 7.5px;
 }
 footer p a {
     color: #fff;
     text-decoration: none;
     outline: none;
+    border-bottom: 1px dashed #fff;
 }
 @media screen and (max-width: 800px) {
     .nav div .logo-group {
